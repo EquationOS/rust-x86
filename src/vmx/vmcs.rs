@@ -221,6 +221,8 @@ pub mod control {
             const CR3_LOAD_EXITING = 1 << 15;
             /// CR3-store exiting.
             const CR3_STORE_EXITING = 1 << 16;
+            /// Activate tertiary controls
+            const TERTIARY_CONTROLS = 1 << 17;
             /// CR8-load exiting.
             const CR8_LOAD_EXITING = 1 << 19;
             /// CR8-store exiting.
@@ -309,6 +311,29 @@ pub mod control {
             const ENABLE_USER_WAIT_PAUSE = 1 << 26;
             /// Enable ENCLV exiting.
             const ENCLV_EXITING = 1 << 28;
+        }
+    }
+
+    bitflags::bitflags! {
+        /// Tertiary Processor-Based VM-Execution Controls.
+        /// (SDM Vol. 3C, Table 26-8)
+        pub struct TertiaryControls: u64 {
+            /// LOADIWKEY exiting.
+            const LOADIWKEY_EXITING = 1 << 0;
+            /// Enable HLAT (hypervisor-managed linear-address translation).
+            const ENABLE_HLAT = 1 << 1;
+            /// EPT paging-write control.
+            const EPT_PAGING_WRITE_CONTROL = 1 << 2;
+            /// Guest-paging verification.
+            const GUEST_PAGING_VERIFICATION = 1 << 3;
+            /// IPI virtualization.
+            const IPI_VIRTUALIZATION = 1 << 4;
+            /// SEAM guest-physical address width.
+            const SEAM_GUEST_PHYS_ADDR_WIDTH = 1 << 5;
+            /// Enable MSR-list instructions.
+            const ENABLE_MSR_LIST_INSTRUCTIONS = 1 << 6;
+            /// Virtualize IA32_SPEC_CTRL.
+            const VIRTUALIZE_IA32_SPEC_CTRL = 1 << 7;
         }
     }
 

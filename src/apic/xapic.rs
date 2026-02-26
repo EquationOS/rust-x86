@@ -267,7 +267,7 @@ impl XAPIC<'_> {
     ///
     /// Pass the xAPCI region which is at XXX unless you have
     /// relocated the region.
-    pub fn new<'a>(apic_region: &'a mut [u32]) -> XAPIC {
+    pub fn new<'a>(apic_region: &'a mut [u32]) -> XAPIC<'a> {
         unsafe {
             XAPIC {
                 mmio_region: apic_region,

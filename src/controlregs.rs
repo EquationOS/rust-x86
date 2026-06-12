@@ -76,6 +76,8 @@ bitflags! {
 
 bitflags! {
     pub struct Xcr0: u64 {
+        const XCR0_XTILE_DATA_STATE = 1 << 18;
+        const XCR0_XTILE_CFG_STATE = 1 << 17;
         const XCR0_PKRU_STATE = 1 << 9;
         const XCR0_HI16_ZMM_STATE = 1 << 7;
         const XCR0_ZMM_HI256_STATE = 1 << 6;
